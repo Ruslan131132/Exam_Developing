@@ -166,7 +166,43 @@ QString cryptoController::decrypt_login_or_password(QString text, QString passwo
     return deciphertext_qbyte;
 }
 
+QString cryptoController::encrypt_data(QString password, QString data) {
+    //encrypt_db_file("1312");
+    //encrypt_login_or_password("1312");
 
+    EVP_CIPHER_CTX *ctx;
+    if(!(ctx = EVP_CIPHER_CTX_new())){
+        return "";
+    }
+
+    QString key = password + ((QString)"0").repeated(32 - password.length());
+
+    iv = (unsigned char*) key.data();
+
+    if(1 != EVP_EncryptInit_ex(ctx, EVP_aes_256_cfb(), NULL, (unsigned char*) key.data(), iv))
+    {
+        return "";
+    }
+
+    unsigned char ciphertext[256] = {0};
+    unsigned char plaintext[256] = {0};
+    int len = 0, plaintext_len = data.length();
+
+    memcpy(plaintext, data.toStdString().c_str(), data.size());
+
+
+    //введенный ПИН зашифровывается
+    if(1 != EVP_EncryptUpdate(ctx, ciphertext, &len, plaintext, plaintext_len))
+    {
+        return "";
+    }
+
+    QString password_cipher = (char *)ciphertext;
+//    QByteArray password_cipher_qbyte = (char*) ciphertext;
+    //возвращается значение считанного и зашифрованного ПИНа с клавиатуры с уже хранящимся зашифрованным ПИНом в .txt файле
+//    return password_cipher_qbyte.toBase64();
+    return password_cipher;
+}
 
 //функция проверяет введенный в первое окно пин-код
 //ПИН: 1312
