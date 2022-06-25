@@ -13,7 +13,16 @@ struct ContentView: View {
     @State private var showDetails = false
     
     var body: some View {
-       
+        VStack(alignment: .leading) {
+           
+        }
+        HStack {
+            ForEach(game.cards) { card in
+                CardView(card: card, countOfCards: self.game.pairs).onTapGesture {
+                    self.game.choose(card: card)
+                    }.aspectRatio(0.66, contentMode: .fit)
+            }
+        }.padding(10)
     }
 }
 
@@ -22,7 +31,15 @@ struct CardView: View {
     var countOfCards: Int
     
     var body: some View {
-        
+        ZStack {
+            if card.isFaceUp {
+                RoundedRectangle(cornerRadius: 10).foregroundColor(Color.white)
+                RoundedRectangle(cornerRadius: 10).stroke().fill(Color.orange)
+                Text("\(card.content)").font(Font.caption)
+            } else {
+                RoundedRectangle(cornerRadius: 10).foregroundColor(Color.orange)
+            }
+        }
     }
 }
 
