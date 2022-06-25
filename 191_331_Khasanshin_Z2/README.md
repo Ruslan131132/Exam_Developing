@@ -28,3 +28,12 @@
 
 ### В данном случае запуск реализован через среду разработки по нажатию кнопки отладки
 
+Скриншоты интерфейса
+------------
+![alt text](https://github.com/Ruslan131132/Exam_Developing/blob/Z2/191_331_Khasanshin_Z2/Screens/S1.png)
+
+
+![alt text](https://github.com/Ruslan131132/Exam_Developing/blob/Z2/191_331_Khasanshin_Z2/Screens/S2.png)
+
+
+![alt text](https://github.com/Ruslan131132/Exam_Developing/blob/Z2/191_331_Khasanshin_Z2/Screens/S3.png)
