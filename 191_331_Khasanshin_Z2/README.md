@@ -30,7 +30,7 @@
 
 Скриншоты интерфейса
 ------------
-![alt text](https://github.com/Ruslan131132/Exam_Developing/blob/Z2/191_331_Khasanshin_Z2/Screens/S1.png)
+![alt text](https://github.com/Ruslan131132/Exam_Developing/blob/master/191_331_Khasanshin_Z2/Screens/S1.png)
 
 
 ![alt text](https://github.com/Ruslan131132/Exam_Developing/blob/Z2/191_331_Khasanshin_Z2/Screens/S2.png)
